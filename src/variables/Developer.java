@@ -5,35 +5,37 @@ import java.util.List;
 
 /**
  * Desafío 1 - Java
+ * 
  * @author aguerrre
  *
  */
 public class Developer {
 
 	/**
-	 * ATRIBUTOS  DE CLASE
+	 * ATRIBUTOS DE CLASE
 	 */
 	private static final String DEV_COMPANY = "Everis";
 	private static final List<Developer> EMPLOYEE_NUMBER = new ArrayList<Developer>();
-	private static final int HOLIDAY_MAX_DAYS=21;
+	private static final int HOLIDAY_MAX_DAYS = 21;
 	/**
 	 * ATRIBUTOS DE INSTANCIA
 	 */
 	private String name;
 	private int idNumber;
 	private int holidayUsed;
-	
+
 	/**
 	 * Constructor con el nombre del empleado
+	 * 
 	 * @param name
 	 */
 	public Developer(String name) {
 		super();
-		//Comprueba si el número de empleados es menor a 127. Si es menor, crea un nuevo empleado. Si es mayor, no lo crea.
-		if(EMPLOYEE_NUMBER.size()<127) {
+		// Comprueba si el número de empleados es menor a 127. Si es menor, crea un nuevo empleado. Si es mayor, no lo crea.
+		if (EMPLOYEE_NUMBER.size() < 128) {
 			this.name = name;
-			this.idNumber=EMPLOYEE_NUMBER.size()+1;
-			this.holidayUsed=0;
+			this.idNumber = EMPLOYEE_NUMBER.size() + 1;
+			this.holidayUsed = 0;
 			EMPLOYEE_NUMBER.add(this);
 		} else {
 			System.out.println("No se pueden agregar más empleados.");
@@ -48,7 +50,8 @@ public class Developer {
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param name
+	 *            the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -62,7 +65,8 @@ public class Developer {
 	}
 
 	/**
-	 * @param idNumber the idNumber to set
+	 * @param idNumber
+	 *            the idNumber to set
 	 */
 	public void setIdNumber(int idNumber) {
 		this.idNumber = idNumber;
@@ -76,18 +80,20 @@ public class Developer {
 	}
 
 	/**
-	 * @param holidayUsed the holidayUsed to set
+	 * @param holidayUsed
+	 *            the holidayUsed to set
 	 */
 	public void setHolidayUsed(int holidayUsed) {
 		this.holidayUsed = holidayUsed;
 	}
+
 	/**
 	 * 
 	 * @return the holiday day's remains
 	 */
 	public int holidayRemain() {
-		//Obtiene el número de días de vacaciones disponibles para un empleado.
-		return Developer.getHolidayMaxDays()-this.getHolidayUsed();
+		// Obtiene el número de días de vacaciones disponibles para un empleado.
+		return Developer.getHolidayMaxDays() - this.getHolidayUsed();
 	}
 
 	/**
@@ -110,15 +116,15 @@ public class Developer {
 	public static int getHolidayMaxDays() {
 		return HOLIDAY_MAX_DAYS;
 	}
-	
+
 	/**
-	 * 
+	 * Método que devuelve un objeto Developer si el id del objeto coincide con el id pasado por parámetro.
 	 * @param id
-	 * @return un objeto Developer si el id coincide con el introducido por parámetro
+	 * @return Developer
 	 */
 	public static Developer getDeveloperByID(int id) {
 		for (Developer a : EMPLOYEE_NUMBER) {
-			if(id == a.getIdNumber())
+			if (id == a.getIdNumber())
 				return a;
 		}
 		return null;
