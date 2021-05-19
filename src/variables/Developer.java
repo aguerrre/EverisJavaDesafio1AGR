@@ -11,15 +11,12 @@ import java.util.List;
  */
 public class Developer {
 
-	/**
-	 * ATRIBUTOS DE CLASE
-	 */
+	/** ATRIBUTOS DE CLASE */
 	private static final String DEV_COMPANY = "Everis";
 	private static final List<Developer> EMPLOYEE_NUMBER = new ArrayList<Developer>();
 	private static final int HOLIDAY_MAX_DAYS = 21;
-	/**
-	 * ATRIBUTOS DE INSTANCIA
-	 */
+
+	/** ATRIBUTOS DE INSTANCIA */
 	private String name;
 	private int idNumber;
 	private int holidayUsed;
@@ -88,7 +85,6 @@ public class Developer {
 	}
 
 	/**
-	 * 
 	 * @return the holiday day's remains
 	 */
 	public int holidayRemain() {
@@ -119,14 +115,16 @@ public class Developer {
 
 	/**
 	 * Método que devuelve un objeto Developer si el id del objeto coincide con el id pasado por parámetro.
+	 * 
 	 * @param id
 	 * @return Developer
 	 */
 	public static Developer getDeveloperByID(int id) {
+		Developer devReturned = null;
 		for (Developer a : EMPLOYEE_NUMBER) {
 			if (id == a.getIdNumber())
-				return a;
+				devReturned = a;
 		}
-		return null;
+		return devReturned;
 	}
 }

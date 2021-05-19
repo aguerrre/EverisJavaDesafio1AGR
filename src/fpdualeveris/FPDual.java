@@ -11,13 +11,15 @@ import variables.Developer;
  *
  */
 public class FPDual {
+
+	/** Objeto Scanner para uso durante la ejecución */
+	private static Scanner sc = new Scanner(System.in);
+
 	/**
 	 * Método principal
 	 * 
 	 * @param args
 	 */
-	private static Scanner sc = new Scanner(System.in);
-
 	public static void main(String[] args) {
 		// La variable opción marcará con qué opción se trabaja.
 		int opcion = 0;
@@ -60,9 +62,7 @@ public class FPDual {
 		System.out.println("Has salido del programa.");
 	}
 
-	/**
-	 * Método que muestra los días de vacaciones restantes de cada empleado.
-	 */
+	/** Método que muestra los días de vacaciones restantes de cada empleado. */
 	private static void showHolidayRemain() {
 		System.out.println("Vacaciones restantes de cada empleado");
 		for (Developer a : Developer.getEmployeeNumber()) {
@@ -70,9 +70,7 @@ public class FPDual {
 		}
 	}
 
-	/**
-	 * Método para quitar días de vacaciones
-	 */
+	/** Método para quitar días de vacaciones */
 	private static void deductHolidayDays() {
 		// Se comprueba si el método searchEmployeeByID() ha devuelto un objeto Developer o no
 		Developer dev = searchEmployeeByID();
@@ -95,9 +93,7 @@ public class FPDual {
 
 	}
 
-	/**
-	 * Método para buscar objetos Developer según su atributo ID
-	 */
+	/** Método para buscar objetos Developer según su atributo ID */
 	private static Developer searchEmployeeByID() {
 		// Se inicia el ID a 128 ya que no deben existir empleados con ID superior a 127.
 		int id = 128;
@@ -121,9 +117,7 @@ public class FPDual {
 		return null;
 	}
 
-	/**
-	 * Método para imprimir un listado con el empleado y su ID
-	 */
+	/** Método para imprimir un listado con el empleado y su ID */
 	private static void showEmployeesID() {
 		System.out.println("ID de los empleados:");
 		// El bucle obtiene cada Developer almacenado en la List
@@ -132,17 +126,13 @@ public class FPDual {
 		}
 	}
 
-	/**
-	 * Método para imprimir el número de empleados
-	 */
+	/** Método para imprimir el número de empleados */
 	private static void printTotalEmployee() {
 		// Se llama a la propiedad size de la Lista EMPLOYEE_NUMBER para saber cuántos empleados hay
 		System.out.println("El número total de empleados es: " + Developer.getEmployeeNumber().size());
 	}
 
-	/**
-	 * Método para instanciar objetos de la clase Developer
-	 */
+	/** Método para instanciar objetos de la clase Developer */
 	private static void variablesChallenge() {
 		// Se introduce el nombre del nuevo empleado y se instancia un objeto.
 		System.out.println("Introduce el nombre del nuevo empleado:");
